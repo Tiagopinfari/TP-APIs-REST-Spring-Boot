@@ -11,12 +11,12 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ErrorResponse {
-    private LocalDateTime timestamp; // Momento del error [cite: 170]
-    private HttpStatus status; // Código de estado HTTP [cite: 171]
-    private String message; // Mensaje de error [cite: 176]
-    private String path; // Ruta de la petición [cite: 177]
+    private LocalDateTime timestamp;
+    private HttpStatus status;
+    private String message;
+    private String path;
 
-    // Constructor simplificado
+
     public ErrorResponse(HttpStatus status, String message, String path) {
         this.timestamp = LocalDateTime.now();
         this.status = status;

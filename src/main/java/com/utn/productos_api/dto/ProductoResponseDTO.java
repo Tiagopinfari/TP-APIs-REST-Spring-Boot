@@ -6,14 +6,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data // Lombok
-@NoArgsConstructor // Lombok
-@AllArgsConstructor // Lombok
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Schema(description = "DTO para la respuesta que incluye el ID generado.")
 public class ProductoResponseDTO {
 
     @Schema(description = "Identificador único del producto")
-    private Long id; // Incluye el ID
+    private Long id;
 
     private String nombre;
     private String descripcion;

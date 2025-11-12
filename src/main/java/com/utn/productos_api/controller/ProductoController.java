@@ -8,10 +8,10 @@ import com.utn.productos_api.model.Categoria;
 import com.utn.productos_api.model.Producto;
 import com.utn.productos_api.service.ProductoMapper;
 import com.utn.productos_api.service.ProductoService;
-import io.swagger.v3.oas.annotations.Operation; // Importación para documentar métodos
-import io.swagger.v3.oas.annotations.Parameter; // Importación para documentar parámetros
-import io.swagger.v3.oas.annotations.responses.ApiResponse; // Importación para documentar respuestas
-import io.swagger.v3.oas.annotations.tags.Tag; // Importación para documentar el controlador
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -23,7 +23,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/productos")
 @RequiredArgsConstructor
-@Tag(name = "Productos", description = "Gestión completa de productos para el sistema de e-commerce") // @Tag
+@Tag(name = "Productos", description = "Gestión completa de productos para el sistema de e-commerce")
 public class ProductoController {
 
     private final ProductoService productoService;
@@ -32,8 +32,8 @@ public class ProductoController {
     // GET /api/productos - Listar todos
     @GetMapping
     @Operation(summary = "Obtener listado de todos los productos",
-            description = "Retorna una lista de ProductoResponseDTOs.") // @Operation
-    @ApiResponse(responseCode = "200", description = "Lista de productos obtenida con éxito.") // @ApiResponse
+            description = "Retorna una lista de ProductoResponseDTOs.")
+    @ApiResponse(responseCode = "200", description = "Lista de productos obtenida con éxito.")
     public ResponseEntity<List<ProductoResponseDTO>> obtenerTodos() {
         List<Producto> productos = productoService.obtenerTodos();
         return ResponseEntity.ok(mapper.toResponseDtoList(productos));
@@ -45,7 +45,7 @@ public class ProductoController {
     @ApiResponse(responseCode = "200", description = "Producto encontrado con éxito.")
     @ApiResponse(responseCode = "404", description = "Producto no encontrado.")
     public ResponseEntity<ProductoResponseDTO> obtenerPorld(
-            @Parameter(description = "ID del producto a buscar", example = "1") // @Parameter
+            @Parameter(description = "ID del producto a buscar", example = "1")
             @PathVariable Long id) {
 
         Producto producto = productoService.obtenerPorId(id)
@@ -122,7 +122,6 @@ public class ProductoController {
 
         productoService.eliminarProducto(id);
 
-        // Retorna 204 No Content
         return ResponseEntity.noContent().build();
     }
 }

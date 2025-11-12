@@ -11,7 +11,6 @@ import java.util.stream.Collectors;
 @Component
 public class ProductoMapper {
 
-    // Convierte ProductoDTO (para la petición) a Entidad Producto
     public Producto toEntity(ProductoDTO dto) {
         Producto entity = new Producto();
         entity.setNombre(dto.getNombre());
@@ -22,7 +21,6 @@ public class ProductoMapper {
         return entity;
     }
 
-    // Convierte Entidad Producto a ProductoResponseDTO (para la respuesta)
     public ProductoResponseDTO toResponseDto(Producto entity) {
         return new ProductoResponseDTO(
                 entity.getId(),
@@ -34,7 +32,6 @@ public class ProductoMapper {
         );
     }
 
-    // Convierte una lista de Entidades a una lista de Response DTOs
     public List<ProductoResponseDTO> toResponseDtoList(List<Producto> entities) {
         return entities.stream()
                 .map(this::toResponseDto)

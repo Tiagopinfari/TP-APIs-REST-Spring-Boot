@@ -8,10 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-// Extiende JpaRepository<Entidad, Tipo_de_ID> para obtener los métodos CRUD básicos
 public interface ProductoRepository extends JpaRepository<Producto, Long> {
 
-    // Método personalizado para buscar productos por categoría [cite: 170, 171]
-    // Spring Data JPA genera automáticamente la consulta SQL a partir del nombre del método.
     List<Producto> findByCategoria(Categoria categoria);
 }
